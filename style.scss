@@ -217,7 +217,7 @@ body {
     }
 
     @media screen and (max-width: 768px) {
-        padding: 3.5rem 1rem 2.5rem;
+        padding: 3.5rem 1rem 1rem;
     }
 }
 
@@ -323,7 +323,7 @@ body {
 
     @media screen and (max-width: 768px) {
         flex-direction: column;
-        padding: 2.5rem 1rem;
+        padding: 4rem 1rem 1rem;
     }
 }
 
@@ -392,7 +392,7 @@ body {
     }
 
     @media screen and (max-width: 768px) {
-        padding: 2.5rem 1rem;
+        padding: 4rem 1rem 1rem;
     }
 }
 
@@ -423,7 +423,6 @@ body {
     align-items: center;
     justify-content: center;
     transition: .3s;
-    cursor: pointer;
 
     &:nth-child(1) {
         background: url(assets/skies.jpeg) no-repeat center/cover;
@@ -466,7 +465,7 @@ body {
         position: absolute;
         width: 100%;
         height: 100%;
-        background: $black;
+        background: $beige;
         opacity: 0;
         transition: .3s;
 
@@ -480,10 +479,14 @@ body {
     }
 
     &:hover {
+        background-color: $green;
+        background-blend-mode: luminosity;
 
-        .home-projects-wrapper-card-a,
-        .home-projects-wrapper-card-descr {
+        .home-projects-wrapper-card-title,
+        .home-projects-wrapper-card-descr,
+        .home-projects-wrapper-card-wrapper {
             opacity: 1;
+            z-index: 1;
         }
     }
 
@@ -492,33 +495,84 @@ body {
     }
 }
 
-.home-projects-wrapper-card-a {
+.home-projects-wrapper-card-title {
     text-align: center;
     font-size: 36px;
     font-weight: 700;
-    color: $beige;
-    position: relative;
-    z-index: 1;
+    color: $green;
     opacity: 0;
     transition: .3s;
 
     @media screen and (max-width: 768px) {
         opacity: 1;
+        z-index: 1;
     }
 }
 
 .home-projects-wrapper-card-descr {
     text-align: center;
-    color: $white;
+    color: $black;
     font-weight: 300;
     font-size: 18px;
-    position: relative;
-    z-index: 1;
+    opacity: 0;
+    transition: .3s;
+    padding-bottom: 1rem;
+
+    @media screen and (max-width: 768px) {
+        opacity: 1;
+        z-index: 1;
+    }
+}
+
+.home-projects-wrapper-card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
     opacity: 0;
     transition: .3s;
 
     @media screen and (max-width: 768px) {
         opacity: 1;
+        z-index: 1;
+    }
+}
+
+.home-projects-wrapper-card-wrapper-a {
+    text-align: center;
+    background: $green;
+    border-radius: 5rem;
+    padding: .75rem 1.5rem;
+    padding-right: 3rem;
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+    transition: .3s;
+    box-shadow: 0 0 0 0 $white inset;
+    color: $white;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        transition: .3s;
+        right: 1rem;
+        top: 1.05rem;
+        background: url(assets/right-arrow.png) no-repeat center/contain;
+        rotate: 45deg;
+        filter: invert(100%);
+    }
+
+    &:hover {
+        box-shadow: -165px 0 0 0 $white inset;
+        color: $black;
+    }
+
+    &:hover::after {
+        filter: invert(0%);
+        rotate: -45deg;
     }
 }
 
@@ -534,7 +588,7 @@ body {
     }
 
     @media screen and (max-width: 768px) {
-        padding: 2.5rem 1rem;
+        padding: 4rem 1rem 2.5rem;
     }
 }
 
@@ -717,71 +771,4 @@ body {
     color: $white;
     font-weight: 300;
     text-align: end;
-}
-
-.contact-sent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: $green;
-    height: 100vh;
-    padding: 1rem;
-}
-
-.contact-sent-title {
-    text-align: center;
-    font-size: 72px;
-    font-weight: 700;
-    color: $beige;
-
-    @media screen and (max-width: 1024px) {
-        font-size: 64px;
-    }
-
-    @media screen and (max-width: 768px) {
-        font-size: 48px;
-    }
-}
-
-.contact-sent-descr {
-    font-size: 18px;
-    color: $white;
-    font-weight: 300;
-    text-align: center;
-    padding-bottom: 1rem;
-}
-
-.contact-sent-a {
-    padding: .75rem 1.5rem;
-    padding-left: 3rem;
-    border-radius: 5rem;
-    background: $beige;
-    font-weight: 700;
-    font-size: 20px;
-    position: relative;
-    box-shadow: 0 0 0 0 $black inset;
-    transition: .3s;
-
-    &::after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        transition: .3s;
-        left: 1rem;
-        top: 1.05rem;
-        background: url(assets/right-arrow.png) no-repeat center/contain;
-        rotate: 135deg;
-    }
-
-    &:hover {
-        box-shadow: -200px 0 0 0 $black inset;
-        color: $beige;
-    }
-
-    &:hover::after {
-        rotate: 180deg;
-        filter: invert(100%);
-    }
 }
