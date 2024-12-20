@@ -281,6 +281,7 @@ body {
     position: relative;
     transition: .3s;
     box-shadow: 0 0 0 0 $black inset;
+    color: $black;
 
     &::after {
         content: "";
